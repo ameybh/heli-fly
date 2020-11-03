@@ -33,7 +33,7 @@ function setup() {
 		background: assets.background,
 		heliSprite: assets.heli,
 		gameover: assets.gameover,
-		crashHeight: height - 100,
+		crashHeight: height - 175,
 	});
 	background(0);
 }
