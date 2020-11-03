@@ -37,10 +37,11 @@ const Game = function ({
 		if (this.state.stage == 'game-over') {
 			push();
 			imageMode(CENTER);
-			image(gameover, width / 2, height / 2);
+			image(gameover, width / 2, height / 2 - 100);
 			pop();
-			textSize(32);
-			text('Reload to reset game.', width / 2, height / 2 + 50);
+			textSize(24);
+			textAlign(CENTER);
+			text('Reload to reset game.', width / 2, height / 2);
 		}
 	};
 };

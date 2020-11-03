@@ -4,6 +4,7 @@ let gameWrapper = null,
 	assets = {},
 	scoreElem,
 	updateScore,
+	fs = window.innerWidth < 600,
 	game;
 const gameScale = 1;
 function preload() {
@@ -59,6 +60,10 @@ function draw() {
 }
 function mousePressed() {
 	pressHandler();
+	if (fs) {
+		fullscreen(fs);
+		fs = false;
+	}
 }
 function keyPressed() {
 	pressHandler();
