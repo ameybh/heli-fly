@@ -2,6 +2,8 @@ console.log('Loaded sketch.js');
 
 let gameWrapper = null,
 	assets = {},
+	scoreElem,
+	updateScore,
 	game;
 const gameScale = 1;
 function preload() {
@@ -21,12 +23,19 @@ function preload() {
 }
 function setup() {
 	gameWrapper = document.getElementById('game');
-	console.log();
+	scoreElem = createDiv('Score = 0');
+	scoreElem.position(20, 20);
+	scoreElem.id = 'score';
+	updateScore = setInterval(() => {
+		const prevScore = parseInt(scoreElem.html().substring(8));
+		scoreElem.html('Score = ' + (prevScore + 1));
+	}, 100);
 	const gameCanvas = createCanvas(
 		gameWrapper.offsetWidth,
 		gameWrapper.offsetHeight
 	);
 	gameCanvas.parent('game');
+
 	noCursor();
 	game = new Game({
 		width,
