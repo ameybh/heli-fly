@@ -14,7 +14,7 @@ const Game = function ({
 	};
 	this.background = new RepetitiveSprite({
 		sprite: background,
-		initY: height - background.height / 2,
+		initY: height - background.height,
 		velocity: -1,
 	});
 	this.heli = new Heli({

@@ -35,5 +35,6 @@ const Heli = function ({
 			0,
 			0
 		);
+		pop();
 	};
 };

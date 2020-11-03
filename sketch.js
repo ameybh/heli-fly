@@ -27,6 +27,7 @@ function setup() {
 		gameWrapper.offsetHeight
 	);
 	gameCanvas.parent('game');
+	noCursor();
 	game = new Game({
 		width,
 		height,
@@ -41,6 +42,11 @@ function draw() {
 	background(color('#C91B26'));
 	game.update();
 	game.render();
+	push();
+	noStroke();
+	fill(color('#FFEEEE55'));
+	circle(mouseX, mouseY, 50);
+	pop();
 }
 function mousePressed() {
 	pressHandler();
