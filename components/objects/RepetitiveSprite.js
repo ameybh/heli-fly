@@ -16,7 +16,7 @@ class RepetitiveSprite {
 			image(this.sprite, this.x, this.y);
 			image(
 				this.sprite,
-				max(width, this.sprite.width) + this.x,
+				max(this.sprite.width, width) + this.x,
 				this.y
 			);
 		};

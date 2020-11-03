@@ -16,6 +16,7 @@ function preload() {
 	for (let i = 0; i < 4; i++) {
 		assets.heli[i] = loadImage(`./assets/sprites/heli/heli-${i}.png`);
 	}
+	assets['gameover'] = loadImage('./assets/sprites/gameover.png');
 	console.log(assets);
 }
 function setup() {
@@ -31,6 +32,8 @@ function setup() {
 		height,
 		background: assets.background,
 		heliSprite: assets.heli,
+		gameover: assets.gameover,
+		crashHeight: height - 100,
 	});
 	background(0);
 }
@@ -48,5 +51,7 @@ function keyPressed() {
 function pressHandler() {
 	if (game.state.stage == 'live') {
 		game.heli.jump();
+	} else if (game.state.stage == 'game-over') {
+		window.location.reload();
 	}
 }

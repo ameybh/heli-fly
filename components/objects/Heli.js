@@ -17,19 +17,21 @@ const Heli = function ({
 		}
 	};
 	this.jump = () => {
-		this.v = -10;
+		this.v = -5;
 	};
 	this.update = () => {
 		if (this.v >= maxV) this.v += gravity;
 		// reversed
 		this.height += this.v;
 	};
-	this.render = () => {
+	this.render = (crashed = false) => {
 		push();
 		translate(width / 3, this.height - this.sprite[0].height + 20);
 		imageMode(CENTER);
 		image(
-			this.sprite[Math.floor((frameCount / wingDuration) % 3)],
+			this.sprite[
+				!crashed ? Math.floor((frameCount / wingDuration) % 3) : 0
+			],
 			0,
 			0
 		);
